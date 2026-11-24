@@ -1,0 +1,54 @@
+name: scrape
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # once a day, 07:17/08:17 Chișinău
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit data
+  issues: write # flag new ANRE decisions
+  actions: write # keep the schedule from auto-disabling
+
+concurrency: scrape
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # stdlib-only Python, preinstalled on the runner: no setup-python, no pip
+      - name: Scrape ANRE
+        run: python3 scraper/scrape.py
+
+      - name: Commit if tariffs changed
+        run: |
+          git diff --quiet -- data/ && { echo "no change"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "data: tariffs update $(date -u +%F)" -m "New ANRE decisions: $(tr '\n' ' ' < new_decisions.txt)"
+          git push
+
+      - name: Open issue for new decisions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s new_decisions.txt ] || exit 0
+          {
+            echo "New ANRE decisions appeared and were published with \`effective_from: null\` (treated as in force now)."
+            echo
+            echo "Check each on legis.md (link in tariffs.json) and add the effective date to \`data/overrides.json\`:"
+            echo
+            sed 's/^/- [ ] /' new_decisions.txt
+          } > body.md
+          gh issue create --title "New ANRE decision(s): $(tr '\n' ' ' < new_decisions.txt)" --body-file body.md
+
+      - name: Keep schedule alive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/scrape.yml/enable"

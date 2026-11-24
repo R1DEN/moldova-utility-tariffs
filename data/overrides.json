@@ -1,0 +1,18 @@
+{
+ "_comment": "Hand-curated facts the ANRE tariff pages don't print. Keyed by ANRE decision number. effective_from = date the price applies (from legis.md / Monitorul Oficial), not the decision date.",
+ "decisions": {
+  "222/2026": {
+   "effective_from": "2026-04-02",
+   "note": "In force from publication in Monitorul Oficial; repeals 459/2025."
+  },
+  "578/2026": {
+   "effective_from": "2026-10-01",
+   "note": "Published MO 486-489 on 29.09.2026; replaces 512/2026."
+  }
+ },
+ "notes": {
+  "electricity": "Prices in MDL/kWh excl. VAT (source: bani/kWh). Household (universal service, low voltage) tariff per supplier: premier_energy = center/south, fee_nord = north. flat is the default; day 07-23 / night 23-07 only with hourly metering. Not yet confirmed whether these include distribution.",
+  "gas": "Prices in MDL/m3 excl. VAT (source: lei/1000 m3). Household price = Energocom public-service-obligation price at low-pressure distribution exit.",
+  "water": "Unit presumed MDL/m3; ANRE page states neither unit nor VAT nor effective date. Household tariffs only. technical_water = non-potable supply in towns without a drinking-water tariff."
+ }
+}

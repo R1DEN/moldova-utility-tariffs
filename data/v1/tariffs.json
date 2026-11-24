@@ -1,0 +1,977 @@
+{
+ "schema_version": 1,
+ "source": {
+  "electricity": "https://anre.md/energie-electrica-3-290",
+  "gas": "https://anre.md/gaze-naturale-3-205",
+  "water": "https://anre.md/alimentare-cu-apa-si-canalizare-3-283"
+ },
+ "notes": {
+  "electricity": "Prices in MDL/kWh excl. VAT (source: bani/kWh). Household (universal service, low voltage) tariff per supplier: premier_energy = center/south, fee_nord = north. flat is the default; day 07-23 / night 23-07 only with hourly metering. Not yet confirmed whether these include distribution.",
+  "gas": "Prices in MDL/m3 excl. VAT (source: lei/1000 m3). Household price = Energocom public-service-obligation price at low-pressure distribution exit.",
+  "water": "Unit presumed MDL/m3; ANRE page states neither unit nor VAT nor effective date. Household tariffs only. technical_water = non-potable supply in towns without a drinking-water tariff."
+ },
+ "electricity": {
+  "premier_energy": {
+   "name": "Premier Energy",
+   "region": "center_south",
+   "unit": "MDL/kWh",
+   "vat_included": false,
+   "current": {
+    "decision": {
+     "number": "222/2026",
+     "date": "2026-03-31",
+     "legis_doc_id": 153764,
+     "url": "https://www.legis.md/cautare/getResults?doc_id=153764&lang=ro",
+     "effective_from": "2026-04-02",
+     "note": "In force from publication in Monitorul Oficial; repeals 459/2025."
+    },
+    "price": {
+     "flat": 3.56,
+     "day": 3.75,
+     "night": 2.94
+    }
+   },
+   "entries": [
+    {
+     "decision": {
+      "number": "222/2026",
+      "date": "2026-03-31",
+      "legis_doc_id": 153764,
+      "url": "https://www.legis.md/cautare/getResults?doc_id=153764&lang=ro",
+      "effective_from": "2026-04-02",
+      "note": "In force from publication in Monitorul Oficial; repeals 459/2025."
+     },
+     "price": {
+      "flat": 3.56,
+      "day": 3.75,
+      "night": 2.94
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "fee_nord": {
+   "name": "FEE Nord",
+   "region": "north",
+   "unit": "MDL/kWh",
+   "vat_included": false,
+   "current": {
+    "decision": {
+     "number": "224/2026",
+     "date": "2026-03-31",
+     "legis_doc_id": 153766,
+     "url": "https://www.legis.md/cautare/getResults?doc_id=153766&lang=ro",
+     "effective_from": null
+    },
+    "price": {
+     "flat": 3.95,
+     "day": 4.11,
+     "night": 3.43
+    }
+   },
+   "entries": [
+    {
+     "decision": {
+      "number": "224/2026",
+      "date": "2026-03-31",
+      "legis_doc_id": 153766,
+      "url": "https://www.legis.md/cautare/getResults?doc_id=153766&lang=ro",
+      "effective_from": null
+     },
+     "price": {
+      "flat": 3.95,
+      "day": 4.11,
+      "night": 3.43
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  }
+ },
+ "gas": {
+  "energocom": {
+   "name": "Energocom",
+   "unit": "MDL/m3",
+   "vat_included": false,
+   "current": {
+    "decision": {
+     "number": "578/2026",
+     "date": "2026-09-28",
+     "legis_doc_id": 156575,
+     "url": "https://www.legis.md/cautare/getResults?doc_id=156575&lang=ro",
+     "effective_from": "2026-10-01",
+     "note": "Published MO 486-489 on 29.09.2026; replaces 512/2026."
+    },
+    "price": 24.202
+   },
+   "entries": [
+    {
+     "decision": {
+      "number": "578/2026",
+      "date": "2026-09-28",
+      "legis_doc_id": 156575,
+      "url": "https://www.legis.md/cautare/getResults?doc_id=156575&lang=ro",
+      "effective_from": "2026-10-01",
+      "note": "Published MO 486-489 on 29.09.2026; replaces 512/2026."
+     },
+     "price": 24.202,
+     "first_seen": "2026-11-24"
+    }
+   ]
+  }
+ },
+ "water": {
+  "apa_canal_chisinau": {
+   "name": "S.A. \"Apă-Canal Chişinău\"",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 14.03,
+     "sewerage": 6.63
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 14.03,
+      "sewerage": 6.63
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "regia_apa_canal_balti": {
+   "name": "ÎM Regia „Apă-Canal-Bălți”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 27.4
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 27.4
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_cantemir": {
+   "name": "ÎM „Apă-Canal Cantemir”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 24.58,
+     "sewerage": 20.0
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 24.58,
+      "sewerage": 20.0
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "glorin_inginering": {
+   "name": "SRL „Glorin-Inginering”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "sewerage": 4.75
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "sewerage": 4.75
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_cahul": {
+   "name": "S.A. \"Apă-Canal\" Cahul",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 23.45,
+     "sewerage": 13.75
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 23.45,
+      "sewerage": 13.75
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_ungheni": {
+   "name": "SRL „Apă-Canal Ungheni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 25.17,
+     "sewerage": 14.84
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 25.17,
+      "sewerage": 14.84
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "regia_apa_canal_orhei": {
+   "name": "SA „Regia Apă Canal-Orhei”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 22.43,
+     "sewerage": 26.75
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 22.43,
+      "sewerage": 26.75
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_vulcanesti": {
+   "name": "Î.M. \"Apă-Canal\" Vulcăneşti",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 30.07,
+     "sewerage": 29.14
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 30.07,
+      "sewerage": 29.14
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "operator_regional_apa_canal_hincesti": {
+   "name": "SA „Operator Regional Apă-Canal Hîncești”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 33.65,
+     "sewerage": 32.13
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 33.65,
+      "sewerage": 32.13
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "directia_de_productie_apa_canal_din_or_stefan_vo": {
+   "name": "ÎM „Direcția de Producție Apă-Canal” din or. Ștefan Vodă",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 36.19,
+     "sewerage": 31.32
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 36.19,
+      "sewerage": 31.32
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_telenesti": {
+   "name": "ÎM DP „Apă-Canal” Telenești",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 21.53,
+     "sewerage": 25.87
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 21.53,
+      "sewerage": 25.87
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_anenii_noi": {
+   "name": "ÎM DP „Apă-Canal” Anenii Noi",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 17.85,
+     "sewerage": 25.5
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 17.85,
+      "sewerage": 25.5
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "servicii_comunale_floresti": {
+   "name": "SA „Servicii Comunale Florești”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 31.39,
+     "sewerage": 35.77
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 31.39,
+      "sewerage": 35.77
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_causeni": {
+   "name": "Î.M. \"Apă-Canal\" Căuşeni",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 27.24,
+     "sewerage": 27.97
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 27.24,
+      "sewerage": 27.97
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_taraclia": {
+   "name": "ÎM „Apă-Canal Taraclia”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 26.33,
+     "sewerage": 26.22
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 26.33,
+      "sewerage": 26.22
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_din_drochia": {
+   "name": "SRL „Apă-Canal din Drochia”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 25.62,
+     "sewerage": 29.04
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 25.62,
+      "sewerage": 29.04
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_termo": {
+   "name": "S.A. \"Apă-Termo\"",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 15.93,
+     "sewerage": 25.67
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 15.93,
+      "sewerage": 25.67
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "regia_apa_canal_soroca": {
+   "name": "S.A. \"Regia Apă-Canal Soroca\"",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 30.29,
+     "sewerage": 4.3
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 30.29,
+      "sewerage": 4.3
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "gospodaria_comunala_riscani": {
+   "name": "SRL „Gospodăria Comunală Rîșcani”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 19.26,
+     "sewerage": 34.0
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 19.26,
+      "sewerage": 34.0
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_leova": {
+   "name": "SA „Apă-Canal Leova”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 25.29,
+     "sewerage": 13.53
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 25.29,
+      "sewerage": 13.53
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "regia_comunal_locativa_cricova": {
+   "name": "ÎM „Regia Comunal-Locativă Cricova”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 19.3,
+     "sewerage": 9.69
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 19.3,
+      "sewerage": 9.69
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_ocnita": {
+   "name": "Î.M. ”Apă - Canal Ocnița”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 30.2,
+     "sewerage": 31.27
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 30.2,
+      "sewerage": 31.27
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_singerei": {
+   "name": "Î.M.D.P. ”Apă - Canal” Sîngerei",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 23.57,
+     "sewerage": 15.91
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 23.57,
+      "sewerage": 15.91
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "gospodaria_comunal_locativa_briceni": {
+   "name": "ÎM „Gospodăria Comunal-Locativă Briceni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 22.42,
+     "sewerage": 32.66
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 22.42,
+      "sewerage": 32.66
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "dpgcl_falesti": {
+   "name": "Î.M. ”DPGCL Fălești”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 30.02,
+     "sewerage": 35.51
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 30.02,
+      "sewerage": 35.51
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "servicii_publice_cimislia": {
+   "name": "ÎM „Servicii Publice Cimișlia”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 19.49,
+     "sewerage": 24.83
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 19.49,
+      "sewerage": 24.83
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "su_canal_comrat": {
+   "name": "Î.M. ”SU - Canal” Comrat",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 31.09,
+     "sewerage": 16.39
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 31.09,
+      "sewerage": 16.39
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "servicii_comunal_locative_rezina": {
+   "name": "ÎM „Servicii Comunal-Locative” Rezina",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 26.21,
+     "sewerage": 19.21
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 26.21,
+      "sewerage": 19.21
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "comunservice_criuleni": {
+   "name": "Î.M. ”Comunservice” Criuleni",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 26.3,
+     "sewerage": 16.2
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 26.3,
+      "sewerage": 16.2
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "gospodaria_comunal_locativa_calarasi": {
+   "name": "ÎM „Gospodăria Comunal-Locativă Călărași",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 26.18,
+     "sewerage": 20.03
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 26.18,
+      "sewerage": 20.03
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "aqua_basarabeasca": {
+   "name": "Î.M. ”AQUA Basarabeasca”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 37.69
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 37.69
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "servicii_comunale_glodeni": {
+   "name": "ÎM „Servicii Comunale Glodeni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 42.66,
+     "sewerage": 46.27
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 42.66,
+      "sewerage": 46.27
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_straseni": {
+   "name": "S.A. ”Apa-Canal Strășeni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 20.73,
+     "sewerage": 13.41
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 20.73,
+      "sewerage": 13.41
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_edinet": {
+   "name": "Î.M. ”Apa-Canal” Edineț",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 36.24,
+     "sewerage": 16.2
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 36.24,
+      "sewerage": 16.2
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_nisporeni": {
+   "name": "S.A. ”Apa Canal Nisporeni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 30.56,
+     "sewerage": 33.43
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 30.56,
+      "sewerage": 33.43
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_basarabeasca": {
+   "name": "Î.M. ”Apa Canal Basarabeasca”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 49.17,
+     "sewerage": 40.46
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 49.17,
+      "sewerage": 40.46
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_magdacesti": {
+   "name": "Î.M. ”Apa Canal Magdacesti”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 11.99,
+     "sewerage": 18.87
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 11.99,
+      "sewerage": 18.87
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "s_r_l_petcom_lux_causeni": {
+   "name": "S.R.L.”Petcom Lux” Causeni",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 26.86
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 26.86
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "regia_apa_soldanesti": {
+   "name": "ÎM „Regia Apa Șoldănești”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 33.67,
+     "sewerage": 11.79
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 33.67,
+      "sewerage": 11.79
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "pro_mediucocieri": {
+   "name": "ÎM „Pro Mediu–Cocieri”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 15.24,
+     "sewerage": 30.38
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 15.24,
+      "sewerage": 30.38
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "apa_canal_donduseni": {
+   "name": "ÎM „Apă-Canal Dondușeni”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 37.04,
+     "sewerage": 26.33
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 37.04,
+      "sewerage": 26.33
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "servcom_cainari": {
+   "name": "ÎM „Servcom Căinari”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "technical_water": 18.06,
+     "sewerage": 5.46
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "technical_water": 18.06,
+      "sewerage": 5.46
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  },
+  "iurceni_servicii": {
+   "name": "Î.M. „Iurceni Servicii”",
+   "unit": "MDL/m3",
+   "vat_included": null,
+   "current": {
+    "price": {
+     "water": 28.71,
+     "sewerage": 11.58
+    }
+   },
+   "entries": [
+    {
+     "price": {
+      "water": 28.71,
+      "sewerage": 11.58
+     },
+     "first_seen": "2026-11-24"
+    }
+   ]
+  }
+ }
+}
