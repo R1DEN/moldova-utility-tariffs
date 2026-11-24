@@ -108,6 +108,18 @@ def active_entry(entries: list[dict], today: str) -> dict:
 
 # ---------------------------------------------------------------- household selection
 
+# Household VAT (Fiscal Code): electricity and water/sewerage are exempt with the
+# right to deduction (art. 104 lit. b)), i.e. 0 for the consumer; natural gas has
+# the reduced 8% rate (art. 96). ANRE prices are always excl. VAT.
+VAT_RATE = {"electricity": 0.0, "gas": 0.08, "water": 0.0}
+
+
+def with_vat(price, rate: float):
+    if isinstance(price, dict):
+        return {k: with_vat(v, rate) for k, v in price.items()}
+    return round(price * (1 + rate), 4)
+
+
 # universal-service suppliers (regulated household electricity), by licence area
 ELECTRICITY_SUPPLIERS = {
     "premier_energy": {"name": "Premier Energy", "region": "center_south"},
@@ -125,7 +137,7 @@ def household(parsed: dict) -> dict:
             continue
         sid = meta.get("id", anre.slugify(rec["licensee"]))
         out["electricity"][sid] = {
-            "name": meta["name"], "region": meta["region"], "unit": "MDL/kWh", "vat_included": False,
+            "name": meta["name"], "region": meta["region"], "unit": "MDL/kWh",
             "decision": rec["decision"], "price": rec["prices"]["low_voltage"],
         }
     for rec in parsed["gas"]:
@@ -134,7 +146,7 @@ def household(parsed: dict) -> dict:
         if rec["category"] != "public_service_obligation" or not meta or "distribution_low" not in rec["prices"]:
             continue
         out["gas"][sid] = {
-            "name": meta["name"], "unit": "MDL/m3", "vat_included": False,
+            "name": meta["name"], "unit": "MDL/m3",
             "decision": rec["decision"], "price": rec["prices"]["distribution_low"],
         }
     for rec in parsed["water"]:
@@ -149,7 +161,7 @@ def household(parsed: dict) -> dict:
             price["sewerage"] = p["sewerage_household"]
         if price:
             out["water"][anre.slugify(rec["operator"])] = {
-                "name": rec["operator"], "unit": "MDL/m3", "vat_included": None, "price": price,
+                "name": rec["operator"], "unit": "MDL/m3", "price": price,
             }
     return out
 
@@ -184,11 +196,14 @@ def build(pages: dict[str, str], prev: dict, overrides: dict, today: str) -> tup
                 num = rec["decision"]["number"]
                 if num not in prev_decisions and num not in overrides.get("decisions", {}) and num not in new_decisions:
                     new_decisions.append(num)
+            for e in entries:
+                e["price_final"] = with_vat(e["price"], VAT_RATE[util])
             act = active_entry(entries, today)
             meta = {k: v for k, v in rec.items() if k not in ("decision", "price")}
             out[util][sid] = {
                 **meta,
-                "current": {k: act[k] for k in ("decision", "price") if k in act},
+                "vat_rate": VAT_RATE[util],
+                "current": {k: act[k] for k in ("decision", "price", "price_final") if k in act},
                 "entries": entries,
             }
 

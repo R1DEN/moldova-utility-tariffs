@@ -16,24 +16,31 @@ https://raw.githubusercontent.com/R1DEN/moldova-utility-tariffs/main/data/v1/tar
 
 ## Data shape
 
-Only what an ordinary household pays. All prices exclude VAT.
+Only what an ordinary household pays. `price` is the ANRE tariff (excl. VAT); **`price_final` is what you actually pay**, VAT included:
+
+| | VAT | |
+|---|---|---|
+| Electricity | 0 | exempt with right of deduction (Fiscal Code art. 104 b) |
+| Gas | 8 % | reduced rate (art. 96) |
+| Water / sewerage | 0 | exempt with right of deduction (art. 104 b) |
 
 ```jsonc
 {
   "schema_version": 1,
   "electricity": {                       // universal-service supplier, low voltage, MDL/kWh
     "premier_energy": {                  // center & south
-      "name": "Premier Energy", "region": "center_south", "unit": "MDL/kWh", "vat_included": false,
+      "name": "Premier Energy", "region": "center_south", "unit": "MDL/kWh", "vat_rate": 0.0,
       "current": {
         "decision": { "number": "222/2026", "effective_from": "2026-04-02", "url": "https://www.legis.md/…" },
-        "price": { "flat": 3.56, "day": 3.75, "night": 2.94 }   // day/night only with hourly metering
+        "price": { "flat": 3.56, "day": 3.75, "night": 2.94 },  // day/night only with hourly metering
+        "price_final": { "flat": 3.56, "day": 3.75, "night": 2.94 }
       },
       "entries": [ … ]                   // newest first, up to 5, incl. not-yet-effective ones
     },
     "fee_nord": { "region": "north", … }
   },
   "gas": {
-    "energocom": { "unit": "MDL/m3", "current": { "decision": { … }, "price": 24.202 } }
+    "energocom": { "unit": "MDL/m3", "vat_rate": 0.08, "current": { "decision": { … }, "price": 24.202, "price_final": 26.1382 } }
   },
   "water": {                             // household tariffs per operator, MDL/m3
     "apa_canal_chisinau": { "current": { "price": { "water": 14.03, "sewerage": 6.63 } } },
@@ -54,21 +61,19 @@ rest:
     sensor:
       - name: Electricity tariff
         unique_id: md_tariff_electricity
-        value_template: "{{ value_json.electricity.premier_energy.current.price.flat }}" # or fee_nord
+        value_template: "{{ value_json.electricity.premier_energy.current.price_final.flat }}" # or fee_nord
         unit_of_measurement: MDL/kWh
       - name: Gas tariff
         unique_id: md_tariff_gas
-        value_template: "{{ value_json.gas.energocom.current.price }}"
+        value_template: "{{ value_json.gas.energocom.current.price_final }}"
         unit_of_measurement: MDL/m³
       - name: Water tariff
         unique_id: md_tariff_water
         value_template: >-
-          {% set p = value_json.water.apa_canal_chisinau.current.price %}
+          {% set p = value_json.water.apa_canal_chisinau.current.price_final %}
           {{ (p.water + p.sewerage) | round(2) }}
         unit_of_measurement: MDL/m³
 ```
-
-Multiply by your VAT rate in the template if you want gross prices.
 
 ## Curation
 

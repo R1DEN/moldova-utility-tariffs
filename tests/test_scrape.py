@@ -60,6 +60,9 @@ class Build(unittest.TestCase):
         self.assertEqual(doc["electricity"]["fee_nord"]["region"], "north")
         self.assertEqual(set(doc["gas"]), {"energocom"})
         self.assertEqual(doc["gas"]["energocom"]["current"]["price"], 24.202)
+        self.assertEqual(doc["gas"]["energocom"]["current"]["price_final"], 26.1382)  # +8% VAT
+        self.assertEqual(doc["electricity"]["fee_nord"]["current"]["price_final"]["flat"], 3.95)  # VAT-exempt
+        self.assertEqual(doc["water"]["apa_canal_chisinau"]["current"]["price_final"], {"water": 14.03, "sewerage": 6.63})
         self.assertEqual(doc["water"]["apa_canal_chisinau"]["current"]["price"], {"water": 14.03, "sewerage": 6.63})
         self.assertEqual(doc["water"]["regia_apa_canal_balti"]["current"]["price"], {"water": 27.4})
         self.assertEqual(doc["water"]["apa_canal_anenii_noi"]["current"]["price"], {"technical_water": 17.85, "sewerage": 25.5})

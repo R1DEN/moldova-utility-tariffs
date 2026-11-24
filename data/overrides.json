@@ -11,8 +11,8 @@
   }
  },
  "notes": {
-  "electricity": "Prices in MDL/kWh excl. VAT (source: bani/kWh). Household (universal service, low voltage) tariff per supplier: premier_energy = center/south, fee_nord = north. flat is the default; day 07-23 / night 23-07 only with hourly metering. Not yet confirmed whether these include distribution.",
-  "gas": "Prices in MDL/m3 excl. VAT (source: lei/1000 m3). Household price = Energocom public-service-obligation price at low-pressure distribution exit.",
-  "water": "Unit presumed MDL/m3; ANRE page states neither unit nor VAT nor effective date. Household tariffs only. technical_water = non-potable supply in towns without a drinking-water tariff."
+  "electricity": "price = ANRE tariff in MDL/kWh (source: bani/kWh); price_final = what the household pays (VAT 0: exempt with right of deduction, Fiscal Code art. 104 b). Household (universal service, low voltage) tariff per supplier: premier_energy = center/south, fee_nord = north. flat is the default; day 07-23 / night 23-07 only with hourly metering. Not yet confirmed whether these include distribution.",
+  "gas": "price = ANRE tariff in MDL/m3 excl. VAT (source: lei/1000 m3); price_final includes the reduced 8% VAT. Household price = Energocom public-service-obligation price at low-pressure distribution exit.",
+  "water": "Unit presumed MDL/m3; ANRE page states no effective date. price_final = price (household water/sewerage VAT-exempt with right of deduction, Fiscal Code art. 104 b). Household tariffs only. technical_water = non-potable supply in towns without a drinking-water tariff."
  }
 }
