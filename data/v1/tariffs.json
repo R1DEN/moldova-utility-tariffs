@@ -589,15 +589,26 @@
    "vat_rate": 0.0,
    "current": {
     "price": {
-     "water": 15.93,
-     "sewerage": 25.67
+     "water": 25.67,
+     "sewerage": 15.62
     },
     "price_final": {
-     "water": 15.93,
-     "sewerage": 25.67
+     "water": 25.67,
+     "sewerage": 15.62
     }
    },
    "entries": [
+    {
+     "price": {
+      "water": 25.67,
+      "sewerage": 15.62
+     },
+     "first_seen": "2026-11-25",
+     "price_final": {
+      "water": 25.67,
+      "sewerage": 15.62
+     }
+    },
     {
      "price": {
       "water": 15.93,
